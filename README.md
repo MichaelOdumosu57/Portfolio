@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/MichaelOdumosu57/Portfolio.svg?style=svg&branch=circleci-dev)](<LINK>)
+[![CircleCI](https://circleci.com/gh/MichaelOdumosu57/Portfolio.svg?style=svg&branch=master)](<LINK>)
 
 
 # Summary
