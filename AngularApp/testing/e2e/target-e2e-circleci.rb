@@ -99,7 +99,7 @@ Capybara.register_driver :firefox_billy do |app|
 
 
   options  =  Selenium::WebDriver::Firefox::Options.new(:profile => profile)
-#   options.args << %{--headless}
+  options.args << %{--headless}
   capabilities = Selenium::WebDriver::Remote::Capabilities.firefox(:accept_insecure_certs => true)
   Capybara::Selenium::Driver.new(
     app,
@@ -111,8 +111,8 @@ end
 # RSpec configs
 RSpec.configure do |config|
 
-    my_drivers = %i{ firefox_billy  }
-#   my_drivers = %i{chrome_billy firefox_billy}
+    # my_drivers = %i{ firefox_billy  }
+  my_drivers = %i{chrome_billy firefox_billy}
   hosts = Hash.new
   hosts[:dev] =  ENV[%{FRONTEND_URL}]
 
@@ -242,7 +242,7 @@ def stagingTest
 
   end
 
-  RSpec.feature  %{Intro Module}, :skip => true   do
+  RSpec.feature  %{Intro Module}   do
 
     scenario %{intro is working properly} do
 
@@ -283,7 +283,7 @@ def stagingTest
 
   end
 
-  RSpec.feature  %{Home Module}, :skip => true   do
+  RSpec.feature  %{Home Module}   do
 
     scenario %{navigation opacity reveal accordingly} do
 
@@ -338,7 +338,7 @@ def stagingTest
 
   end
 
-  RSpec.feature  %{Resume Module}, :skip => true    do
+  RSpec.feature  %{Resume Module}    do
 
     scenario %{the links to the projects are working } do
         opening_nav :driver =>Capybara.current_driver,
@@ -392,7 +392,7 @@ def stagingTest
 
   end
 
-  RSpec.feature  %{Testimony Module}, :skip => true   do
+  RSpec.feature  %{Testimony Module}   do
 
     scenario %{on start we are automatically paginating} do
         opening_nav :driver =>Capybara.current_driver,
@@ -438,7 +438,7 @@ def stagingTest
     end
   end
 
-  RSpec.feature  %{Contact Module}, :skip => true  do
+  RSpec.feature  %{Contact Module}  do
 
     scenario %{links to contact me are working} do
         opening_nav :driver =>Capybara.current_driver,
@@ -476,7 +476,7 @@ def stagingTest
     end
   end
 
-  RSpec.feature  %{staging} do
+  RSpec.feature  %{staging} , :skip => true  do
 
     scenario %{the links to the projects are working } do
         opening_nav :driver =>Capybara.current_driver,
