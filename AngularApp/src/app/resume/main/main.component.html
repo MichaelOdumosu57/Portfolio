@@ -1,0 +1,153 @@
+
+<app-navigation></app-navigation>
+<img
+class = "a_p_p_MainImage"
+[ngStyle]= "image.style"
+src="assets/media/main_1.png" alt="">
+<div
+class ="a_p_p_ResumePod"
+>
+    <div
+    class = "a_p_p_ResumeItem"
+    (animationend)="resume.parts[0].item.animationend($event)"
+    [ngStyle]="resume.parts[0].item.style"
+    >
+        <img src="assets/media/resume_1.jpg" alt="">
+        <div
+        class = "a_p_p_ResumeTitleContainer"
+        >
+            <h1>Michael Odumosu</h1>
+            <h2>Fullstack Developer</h2>
+        </div>
+        <a
+        appDownloadPDF data-html2canvas-ignore
+        class=a_p_p_ResumeDownloadPDF
+        >Download Resume</a>
+    </div>
+    <div
+    class="a_p_p_ResumeItem"
+    (animationend)="resume.parts[1].item.animationend($event)"
+    [ngStyle]="resume.parts[1].item.style"
+    >
+        <div>
+            <h3>
+                Just because ​it's <img
+                src="assets/media/resume_2.svg"/> simple don’t underestimate the potential​
+            </h3>
+            <div class="a_p_p_ResumeYearsContainer">
+                <h2>30+</h2>
+                <h2>Projects</h2>
+            </div>
+            <p
+            class="a_p_p_ResumeInfo"
+            >
+                Software Developer with stacks in frontend, backend,
+                E2E testing, and CI/CD stacks.​
+                Video Content Creator and App UI Specialist​
+            </p>
+            <img
+            src="assets/media/resume_3.png" alt="">
+            <h2
+            class="a_p_p_Specific0"
+            >Lives in</h2>
+            <h2
+            class = "a_p_p_TextBold"
+            >New York,NY</h2>
+            <h2
+            class = "a_p_p_TextBold"
+            >US Citizen</h2>
+
+        </div>
+        <div>
+            <div
+            class="a_p_p_ResumeContactContainer"
+            >
+                <div
+                *ngFor="let item of resume.parts[1].contact.items"
+                >
+                    <img [src]="item.logo" alt="">
+                    <h4>{{item.title}}</h4>
+                    <a [href]=item.link>{{item.link}}</a>
+                </div>
+            </div>
+            <div
+            class="a_p_p_ResumeShortBioContainer"
+            >
+                <h2>
+                    Short Bio
+                </h2>
+                <div
+                class="a_p_p_ResumeShortBioText"
+                >
+                    <ng-template
+                    ngFor let-item [ngForOf]=resume.parts[1].shortBio.items>
+                    <p>{{item.text}}</p>
+                    <br/>
+                    </ng-template>
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2
+            class=a_p_p_ResumeProjectsTitle
+            >Projects</h2>
+            <div
+            class ="a_p_p_ResumeProjectsItem"
+            *ngFor="let item of resume.parts[1].projects.items; index as i"
+            >
+                <div
+                class="a_p_p_ResumeProjectsTextPod"
+                >
+                    <h4>{{item.title}}</h4>
+                    <p>{{item.desc}}</p>
+                    <br>
+                    <a
+                    [href]="item.url.split(' ').join('')"><span>URL:</span>{{item.url}}</a>
+                </div>
+                <img [src]="item.image" alt="">
+                <div *ngIf="i != resume.parts[1].projects.items.length -1"
+                class ="a_p_p_ResumeStrikeThrough"
+                ></div>
+            </div>
+        </div>
+    </div>
+    <div
+    class="a_p_p_ResumeItem"
+    (animationend)="resume.parts[2].item.animationend($event)"
+    [ngStyle]="resume.parts[2].item.style"
+    >
+        <div
+        class="a_p_p_ResumeWork"
+        >
+            <h2>Work Experience</h2>
+            <div
+            class="a_p_p_ResumeWorkItem"
+            *ngFor="let item of resume.parts[2].work.items;"
+            >
+                <h3>{{item.title}}</h3>
+                <div class="a_p_p_ResumeStrikeThrough"></div>
+                <h4>{{item.position}}</h4>
+                <h4>{{item.dates}}</h4>
+                <p
+                *ngFor="let task of item.tasks"
+                >
+                    <img src="assets/media/resume_11.svg" alt="">
+                {{task}}</p>
+            </div>
+
+        </div>
+        <div
+        class="a_p_p_ResumeSkills"
+        >
+            <h2>Software Stack</h2>
+            <div
+            id="plotlySkillsChart"
+            class="a_p_p_ResumePlotly"
+            appSkillsSunChart
+            ></div>
+        </div>
+    </div>
+
+</div>
+

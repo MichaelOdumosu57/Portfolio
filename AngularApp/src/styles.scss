@@ -1,0 +1,1141 @@
+@use "sass:map";
+
+
+@mixin blue_button {
+	background:radial-gradient(farthest-corner at 100% 0px, cyan 0%, blue 200%);
+}
+
+@mixin dark_blue_button {
+	background:radial-gradient(farthest-corner at 100% 0px, royalblue 0%, navy 200%);
+}
+
+@mixin black_button {
+	background:radial-gradient(farthest-corner at 100% 0px, grey 0%, black 150%);
+}
+
+@mixin orange_button {
+	background:radial-gradient(farthest-corner at 100% 0px, orange 0%, red 200%);
+}
+
+@mixin red_button {
+	background:radial-gradient(farthest-corner at 100% 0px, red 0%, white 250%);
+}
+
+@mixin green_button {
+	background:radial-gradient(farthest-corner at 100% 0px, aquamarine 0%, green 200%);
+}
+
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@mixin outline{
+    border:3px dotted red;
+}
+
+@mixin glassmorphism{
+    border-radius: 30px;
+    backdrop-filter: blur( 4px );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+// @import "../node_modules/primeng/resources/themes/saga-blue/theme.css";
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/primeicons/primeicons.css";
+
+
+*:not(.a_p_p_LibComponents *,.a_p_p_LibComponents ){
+    // margin :10px 0 0 0;
+
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+    scrollbar-color: transparent;
+    scrollbar-width: 6px;
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: #263040;
+    }
+    &::-webkit-scrollbar-thumb:window-inactive {
+        background-color: transparent;
+        opacity:4px;
+    }
+    &::-webkit-scrollbar-corner {
+        background: transparent;
+    }
+
+}
+
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./assets/fonts/Inter-Bold.ttf');
+}
+
+@mixin intro_reveal{
+    animation-duration: 3s,3s;
+    animation-name: slidein,reveal;
+    animation-iteration-count: 3;
+}
+@mixin TAC{ //text-align-center
+    text-align: center;
+}
+:root{
+    --yellow:yellow;
+    --navy1:#233343;
+    --navy2:#1a2632;
+    --white:white;
+    --skyblue:#00BFFF;
+    --padding1:15px 10px 0 10px;
+    --font-family0:Inter;
+    --font-family1:Corbel;
+    --font-family2:Rockwell;
+}
+
+@function my_prod($step){
+    $type: prod;
+    $prod: (0:50% ,1:slidein 2s,2:1s);
+    $dev: (0:20px ,1:none,2:none);
+    $answer: "";
+    @if $type == prod {
+        $answer: map.get($prod,$step);
+
+    }
+    @else if $type == dev {
+        $answer: map.get($dev,$step);
+
+    }
+    @return $answer;
+}
+$intro_align : flex-end,flex-start;
+$intro_testimony_card_header: row,row-reverse;
+$media_breakpoint: (0:1075px,1:767px,resume_issue:1355px);
+
+* {
+    z-index:4;
+}
+
+.a_p_p_{
+
+    &Nav{
+        &Pod{
+            flex:0 0 100%;
+            display:flex;
+            flex-direction: row;
+            justify-content:flex-end;
+            max-width: 1550px;
+
+            @media (max-width: map.get($media_breakpoint,0)) {
+                // @include outline;
+
+                // margin-top:350px;
+                justify-content:flex-start;
+                align-items: center;
+                flex-direction: column;
+
+                & a {
+                    // position: absolute;
+                    // flex: 1 0 90%;
+                    display:none;
+                    width:85%;
+                    margin: 0 0 0 0 ;
+                    background-color: black;
+                }
+
+                & .a_p_p_NavIcon{
+                    display:block;
+                }
+            }
+        }
+        &Overlay{
+            background-color: gray;
+            opacity: 0.5;
+            position: absolute;
+            top: 0;
+            left:0;
+            width:100vw;
+            height:100vh;
+            z-index:3;
+            display:none;
+        }
+        &Icon{
+            display:none;
+            width:10vw;
+            align-self:flex-end;
+            justify-self:center;
+            margin: 1vh 20px;
+        }
+        &Item{
+
+            display:block;
+            padding: 10px 20px;
+            border :1px solid white;
+            border-radius: 30px;
+            height:25px;
+            color:white;
+            margin: 20px 30px;
+            text-decoration: none;
+            min-width: 70px;
+            text-align: center;
+            opacity:0.1;
+            transition: opacity 2s;
+        }
+
+        &Component{
+            @media (max-width: map.get($media_breakpoint,0)) {
+                z-index:5;
+                // height:auto;
+            }
+            flex:1 0 100%;
+            height:100px;
+            display:flex;
+            justify-content:center;
+        }
+    }
+    &Shared{
+        &Overlay{
+            background-color:black;
+            height:100vh;
+            width:100vw;
+            background-image: url("./assets/media/spotlight.jpg");
+            background-size: cover;
+            filter: brightness(60%);
+
+        }
+
+        &Content{
+            // @include outline;
+            position: absolute;
+            top: 0;
+            left: 0;
+            // padding:150px 0 0 0;
+            height:99vh;
+            width:100vw;
+            @include flex-column-center;
+
+            overflow-y: hidden;
+        }
+
+    }
+
+    &Intro{
+
+        &Phrase{
+
+            &Card{
+                // @include outline;
+                max-width: 1400px;
+                margin: 150px 0 0 0;
+                display: flex;
+                flex-direction: column;
+                width: 80%;
+                align-self: center;
+
+                @media (max-width: map.get($media_breakpoint,0)){
+                    align-content: center;
+                    margin-top: 30px;
+                    & *{
+                        align-self: center !important;
+                        text-align: center;
+                        font-size:36px !important;
+                    }
+
+                    & img{
+
+                        height:   40vw !important;
+                        flex: 0 1 40vw !important;
+                    }
+                }
+            }
+
+            &Box{
+                // margin: 50px 0 0 0;
+                width :60%
+            }
+
+            &Image{
+                height :400px;
+                align-self: nth($intro_align, random(2));
+                flex: 0 1 400px;
+
+                // animation-delay: 2s;
+            }
+            &Text{
+                font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+                color:white;
+                align-self: nth($intro_align, random(2));
+                font-size: 72px;
+                width: 65%;
+                font-weight: 800;
+            }
+
+            &Reveal{
+                @include intro_reveal;
+            }
+        }
+    }
+
+    &Main {
+        &Component{
+            // @include flex-column-center;
+            // @include outline;
+            display:flex;
+            flex-direction: row;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            @media (max-width: map.get($media_breakpoint,1)){
+                overflow:scroll;
+            }
+
+        }
+
+        &Image{
+            // @include outline;
+            opacity: 0.1;
+            // justify-self: center;
+            margin:0 0 0 10%;
+            // height:900px;
+            height:110vh;
+            position:absolute;
+            z-index: 2;
+            transition: opacity 1s ease-in-out;
+
+            @media (max-width: map.get($media_breakpoint,0)){
+                display:none;
+            }
+        }
+
+        &Text{
+            &Container{
+                flex: 1 0 100%;
+                align-self: center;
+                margin: 200px 0 0 0;
+            }
+
+            &Pod{
+                flex: 1 0 100%;
+                align-self: center;
+                margin: 200px 0 0 0;
+
+                @media (max-width: map.get($media_breakpoint,0)){
+                    margin:2% 0 0 0 ;
+                    & h1{
+                        font-size:5vh
+                    }
+
+                    & p{
+                        font-size:2.5vh
+                    }
+                }
+
+            }
+        }
+
+        &Name{
+            &Text{
+                color:white;
+
+                text-align: center;
+                font-family: Inter;
+                font-size: 72px;
+                // @include outline;
+            }
+        }
+
+        &Desc{
+            &Text{
+                color:white;
+                width: 62%;
+                margin:auto;
+                text-align: center;
+                font-family: Inter;
+                font-size: 24px;
+
+            }
+        }
+
+    }
+
+    &Resume{
+
+        &StrikeThrough{
+            height:0px;
+            border-bottom: 5px dotted var(--skyblue);
+        }
+        &Component{
+            // @include flex-column-center;
+            // @include outline;
+            display:flex;
+            flex-direction: row;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            justify-content:center;
+
+        }
+
+        &Container{
+            // @include outline;
+            flex: 0 0 80%;
+            // margin:0 auto 100px auto;
+            justify-self:flex-end;
+            overflow: scroll;
+            height:85vh;
+            min-width: 1223px;
+            max-width: 1223px;
+
+        }
+
+
+        &Pod{
+
+            // @include outline;
+            flex: 0 0 80%;
+            // margin:0 auto 100px auto;
+            justify-self:flex-end;
+            overflow: scroll;
+            height:85vh;
+            // min-width: 1223px;
+            max-width: 1223px;
+
+        }
+
+        &DownloadPDF{
+            font-family:Corbel;
+            color:var(--yellow);
+            font-size: 36px;
+            padding: 10px 30px;
+            align-self: flex-start;
+            // width:200px;
+            margin: 0 0 0 150px;
+            border-radius:5px;
+            font-weight: 700;
+            background-color:var(--navy2);
+        }
+
+        &Item{
+
+            opacity:.7;
+
+            &:not(:first-child){
+                margin-top:my_prod(0);
+                & *{
+                    font-family:Corbel;
+                    font-weight: 400;
+                    color:white;
+                }
+            }
+
+            &:first-child{
+                animation: my_prod(1);
+                background-color: yellow;
+                height:100px;
+                display:flex;
+                padding: 10px 0 0 20px;
+
+                & > img{
+                    // margin:10px 0 0 20px;
+                    height:133px;
+                    aspect-ratio: 1;
+                }
+
+                & > .a_p_p_ResumeTitleContainer{
+                    // @include outline;
+                    margin:0 0 0 20px;
+                    & > h1{
+                        font-family:Rockwell;
+                        color : #233343;
+                        font-size: 44px;
+                    }
+                    & > h2{
+                        font-family:Corbel;
+                        color : #233343;
+                        font-size: 24px;
+                        font-weight: 400;
+                    }
+                }
+
+                @media (max-width: map.get($media_breakpoint,0)){
+                    @include flex-column-center;
+                    height:auto;
+                    padding:10px;
+
+                    // margin:0;
+                    & *{
+                        @include TAC;
+                        margin:0;
+                        align-self: center;
+                    }
+                    & > img{
+                        display:none;
+                        height:auto;
+                        width:25%;
+                        min-width:100px;
+                        flex: 0 0 30%;
+                    }
+                }
+
+                @media
+                    (min-width: map.get($media_breakpoint,0) ) and
+                    (max-width: map.get($media_breakpoint,resume_issue))
+                {
+                    & > .a_p_p_ResumeTitleContainer > h1{
+                        font-size:2.5vw;
+                    }
+                    & > .a_p_p_ResumeDownloadPDF{
+                        margin:0 0 0 70px;
+                    }
+                }
+
+
+            }
+
+            &:nth-child(2){
+                animation: my_prod(1);
+                animation-delay: my_prod(2);
+                // @include outline;
+                display:flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+
+
+
+
+                & > div{
+                    min-height:550px;
+                    // background-color: var(--navy2);
+                    &:not(:nth-child(3)){
+                        margin: 0 20px 0 0;
+                    }
+                    &:nth-child(1){
+                        // @include outline;
+                        flex: .6 1 ;
+                        background-color: #233343;
+                        padding:20px;
+                        @include flex-column-center;
+                        & > *{
+                            margin: 0 0 20px 0;
+                        }
+                        & > h3{
+                            font-size:22px;
+                            & > img{
+                                height:30px;
+                                aspect-ratio: 1;
+                            }
+                        }
+                        & > .a_p_p_ResumeYearsContainer{
+
+                            display:flex;
+                            align-items:flex-start;
+                            & > h2 {
+                                // @include outline;
+                                color:yellow;
+                                font-family:Rockwell;
+                                font-weight: 700;
+                                margin:0;
+                                display:inline-block;
+                                overflow: hidden;
+
+                                &:first-child{
+                                    line-height: 75%;
+                                    font-size:96px;
+                                }
+                                &:nth-child(2){
+                                    // transform:rotate(90deg);
+                                    margin: 55px 0 0 -65px;
+                                    height:40px;
+                                    font-size:28px;
+                                }
+                            }
+                        }
+
+                        & > h2{
+                            align-self: flex-start;
+                            text-align: left;
+
+                            &:nth-child(3){
+                                margin: 300px;
+                            }
+                        }
+                        & > .a_p_p_TextBold{
+                            font-weight: 700;
+                        }
+
+                        @media (max-width: map.get($media_breakpoint,0)){
+                            // flex: 1 0 100%;
+                            margin:0 20px 20px 0;
+                            & img{
+                                display:none;
+                            }
+
+                            & > *{
+                                margin: 0 0 40px 0;
+                            }
+                        }
+
+                        @media (max-width: map.get($media_breakpoint,1)){
+                            flex: 1 0 90% ;
+                        }
+
+
+
+                    }
+                    &:nth-child(2){
+                        // @include outline;
+                        @include flex-column-center;
+                        flex: 1 1 ;
+
+                        & > div:first-child{
+                            // @include outline;
+                            background-color: #1a2632;
+                        }
+
+                        & > .a_p_p_ResumeContactContainer{
+                            padding:15px 10px 0 10px;
+                            & > div {
+                                display:flex;
+                                flex-wrap:wrap;
+                                margin: 0 0 20px 0 ;
+                                & > img{
+                                    height:20px;
+                                    aspect-ratio: 1;
+                                    margin: 0 10px 0 0;
+                                }
+                                & > h4 {
+                                    color:yellow;
+                                    font-weight: 700;
+                                }
+
+                                & > a{
+                                    flex: 1 0 100%;
+                                    font-size:14px;
+                                }
+                            }
+
+                        }
+
+                        & > .a_p_p_ResumeShortBioContainer{
+                            // @include outline;
+                            display:flex;
+                            flex-wrap:wrap;
+                            background-color: var(--navy1);
+                            width:100%;
+                            flex: 1 0;
+                            align-content:flex-start;
+                            & > h2{
+                                background-color: yellow;
+                                font-family:Rockwell;
+                                color:var(--navy1);
+                                flex: 1 1 90%;
+                                padding: 10px 0 10px  15px;
+                                // height:10%;
+                            }
+
+                            & > .a_p_p_ResumeShortBioText{
+                                flex: 1 0 90%;
+                                padding:var(--padding1);
+                            }
+
+                        }
+
+                        @media (max-width: map.get($media_breakpoint,0)){
+                            margin: 0 0 20px 0;
+                            // @include outline;
+                            & > .a_p_p_ResumeContactContainer{
+                                width: 96%;
+                            }
+                        }
+
+                        @media (max-width: map.get($media_breakpoint,1)){
+                            & > .a_p_p_ResumeContactContainer{
+                                // width: 90%;
+                                & *{
+                                    word-break: break-word;
+                                }
+                            }
+                            // @include outline;
+                        }
+
+                    }
+                    &:nth-child(3){
+                        @include flex-column-center;
+                        flex: 2 1 ;
+                        background-color: var(--navy1);
+                        justify-content:space-around;
+                        padding:var(--padding1);
+                        padding-bottom:20px;
+
+
+                        & > h2 {
+                            color:yellow;
+                            font-family:Rockwell;
+                            padding:5px 80px;
+                            background-color: var(--navy2);
+
+                        }
+
+                        & > .a_p_p_ResumeProjectsItem{
+                            // @include outline;
+                            display:flex;
+                            flex-wrap:wrap;
+                            padding:var(--padding1);
+                            width:85%;
+
+                            & .a_p_p_ResumeProjectsTextPod {
+                                margin: 0 15px 20px 0  ;
+                            }
+                            & h4,span{
+                                color:var(--yellow);
+                                font-weight: 700;
+                                text-align: center;
+                            }
+                            & > div{
+                                // @include outline;
+                                flex :  2 1 ;
+                                margin: 0 20px 0 0;
+
+                                //if issues
+                                // & > a,p{
+                                //     // word-break: break-word;
+                                // }
+                            }
+
+
+                            & > img{
+                                // @include outline;
+                                height:160px;
+                                // aspect-ratio: 1.7/1;
+                                width:270px;
+                                flex: 0 3 ;
+
+                            }
+
+                            & > .a_p_p_ResumeStrikeThrough{
+                                // @include outline;
+                                flex :1 1 100%;
+                                margin: 20px 0 0 0;
+                            }
+
+                        }
+
+                        @media (max-width: map.get($media_breakpoint,1)){
+                            // flex: 1 0 100%;
+                            // @include outline;
+                            padding:20px 0;
+                            & > .a_p_p_ResumeProjectsTitle {
+                                padding:5px 50px;
+                            }
+
+
+
+                            & > .a_p_p_ResumeProjectsItem{
+                                padding:0;
+                                & > img{
+                                    height:100px;
+                                }
+
+                                & .a_p_p_ResumeProjectsTextPod {
+                                    margin: 20px 0  ;
+                                    min-width:215px;
+                                    & a,p{
+                                        word-break: break-word;
+                                    }
+                                }
+
+
+                            }
+
+                        }
+                    }
+                }
+
+            }
+
+            &:nth-child(3){
+                animation: my_prod(1);
+                animation-delay: my_prod(2);
+                // @include outline;
+                background-color: var(--navy2);
+                display:flex;
+                padding:var(--padding1);
+
+                & > .a_p_p_ResumeWork {
+                    // @include outline;
+                    margin: 0 20px 20px 0 ;
+                    flex: 1.5 1;
+                    & > h2 {
+                        font-family:Rockwell;
+                        font-size:36px;
+                    }
+
+                    & > .a_p_p_ResumeWorkItem {
+                        & > h3 {
+                            color:var(--yellow);
+                            font-size:24px;
+                            margin: 0 0 10px 0 ;
+                        }
+
+                        & .a_p_p_ResumeStrikeThrough{
+                            margin:0 0 10px  0;
+                        }
+                    }
+                }
+
+                & > .a_p_p_ResumeSkills{
+                    // @include outline;
+                    margin: 0 0 20px 0 ;
+                    background-color: var(--navy2);
+                    flex: 1 1;
+                    & > h2 {
+                        font-family:Rockwell;
+                        font-size:36px;
+                    }
+
+                    & > .a_p_p_ResumePlotly>div>div>svg:nth-child(1) {
+                        background-color: var(--navy2) !important;
+                    }
+                }
+
+                @media (max-width: map.get($media_breakpoint,1)){
+                    flex-direction:column;
+
+                    & > .a_p_p_ResumeWork{
+                        margin: 0 0 20px 0;
+                    }
+
+                    & > .a_p_p_ResumeSkills{
+                        flex: 1 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &Testimony{
+
+        &Component{
+            display:flex;
+            flex-direction: row;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            justify-content:center;
+            // z-index:5
+        }
+
+        &Item{
+
+            &Pod{
+                display:flex;
+                align-items: center;
+                padding:20px;
+                height:inherit
+                // width:230px;
+                // @include outline;
+            }
+            &Name{
+                font-family: var(--font-family0);
+                font-size:92px;
+                font-weight: 1000;
+                // @include outline;
+                align-self: flex-start;
+                flex: 0 1 30%;
+                width:30%;
+                margin:0
+                // letter-spacing:-1px;
+            }
+
+            &Desc{
+                flex: 1 0 100%;
+                font-size:24px;
+                font-family: var(--font-family0);
+            }
+
+            &Img{
+                border:3px solid black;
+                border-radius:500px;
+                height:200px;
+                flex: 0 1 15%;
+                // justify-self: flex-end;
+                // aspect-ratio: 1;
+            }
+        }
+
+        &Pause{
+            font-family:var(--font-family1);
+            font-size:36px;
+            border: 5px solid black;
+            border-radius:15px;
+            background-color:var(--back);
+        }
+
+        &Pods{
+            // flex: 0 1 20%;
+            width: 90%;
+            margin:0 auto 100px auto;
+            align-self: center;
+            justify-self: center;
+            border-radius: 10px;
+            background-color: var(--white);
+            opacity: 0.93;
+            filter:brightness(2);
+            padding:10px;
+
+            height:500px;
+
+            @media (max-width: map.get($media_breakpoint,0)){
+                width:75vw;
+
+                overflow:scroll;
+                .a_p_p_TestimonyItemName{
+                    font-size:5vw;
+                }
+                .a_p_p_TestimonyPause{
+                    margin-bottom:100px;
+                }
+                .a_p_p_TestimonyItemImg{
+                    height:15vw;
+                    width: 15vw;
+                    // margin:0;
+                }
+                .a_p_p_TestimonyItemDesc{
+                    font-size:3vw;
+                }
+                .p-carousel-container{
+
+                    width:100%;
+                    margin:0 100px;
+                }
+
+            }
+        }
+    }
+
+    &Contact{
+        &Component{
+            display:flex;
+            flex-direction: row;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            width:100%;
+            // @include outline;
+            // justify-content:center;
+            &  *{
+                color:white
+            }
+        }
+        &Header{
+            &Title{
+                font-family: var(--font-family0);
+                color:white;
+                font-size:72px;
+
+            }
+
+            &Pod{
+                flex: 1 0 100%;
+                display:flex;
+
+                // @include outline;
+            }
+        }
+
+        &Pod{
+
+            max-width:1500px;
+            padding:0 50px ;
+            flex: 0 1 90%;
+            margin:auto;
+            display:flex;
+            flex-direction: row;
+            flex-wrap:wrap;
+
+            @media (max-width: map.get($media_breakpoint,0)){
+
+                & .a_p_p_ContactHeaderPod{
+                    // @include outline;
+                    justify-content: center;
+                }
+                & .a_p_p_ContactBody1{
+                    display:none;
+                }
+
+                & .a_p_p_ContactBody0{
+                    // @include outline;
+                    flex: 1 0;
+                }
+
+                & .a_p_p_ContactBody0LogoPod{
+                    flex:1 0;
+                }
+
+                & .a_p_p_ContactBody0LogoLine{
+                    flex:1 0;
+                }
+                & .a_p_p_ContactHeaderTitle{
+                    font-size:10vh
+                }
+                & .a_p_p_ContactBody0LogoAnimateName {
+                    font-size:5vh
+                }
+
+                & .a_p_p_ContactBody0LogoIcon{
+                    height:5vh;
+                    width:5vh;
+                }
+            }
+
+            @media (max-width: map.get($media_breakpoint,1)){
+
+                flex: 0 1 70%;
+
+            }
+
+
+        }
+
+        &Body{
+            &0{
+                display:flex;
+                // @include outline;
+                flex: 0 1 49%;
+                &Logo{
+                    &Pod{
+                        // @include outline;
+                        display:flex;
+                        flex-wrap:wrap;
+                        flex: 0 0 50%;
+                    }
+
+                    &Line{
+                        // @include outline;
+                        flex:1 0 100%;
+                        display:flex;
+                    }
+
+                    &Icon{
+                        height:50px;
+                        margin:10px;
+                        border-radius:75px;
+                        background-color:var(--white);
+                        // flex-shrink: 1;
+                    }
+                    &Animate{
+                        &Name{
+                            // @include outline;
+                            font-family: var(--font-family0);
+                            font-size:36px;
+                            // align-self: center;
+                            // flex-grow: 1;
+                        }
+
+                        &Cover{
+                            align-self: center;
+                        }
+
+                    }
+
+                }
+            }
+
+            &1{
+                display:flex;
+                // @include outline;
+                flex: 0 1 49%;
+                padding: 10px;
+                justify-content: center;
+                align-items: center;
+
+                &Preview{
+                    &Text{
+                        font-family: var(--font-family1);
+                        font-size:72px;
+
+                    }
+                }
+            }
+        }
+    }
+
+    &Specific{
+        &0{
+            margin:0 !important;
+        }
+        &White{
+            color:white
+        }
+        &CFT{ //color font transition
+            transition: color 1s,background 1s;
+            border-radius: 50px;
+            padding:5px 15px;
+        }
+
+        &TAC{ //text align center
+            @include TAC
+        }
+
+
+    }
+
+    &BackgroundProp{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 0px;
+        width: 0px;
+        z-index: 0;
+    }
+}
+
+
+
+
+.p-carousel-item {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+
+
+    @for $i from 1 through 5{
+        &:nth-child(#{$i}){
+            flex-direction:nth($intro_testimony_card_header,random(2))
+        }
+    }
+
+}
+
+
+@keyframes slidein {
+    from {
+        margin-top: 50%;
+    }
+
+    to {
+      margin-top: 0%;
+    }
+}
+@keyframes reveal {
+    from {
+        opacity:0;
+    }
+
+    to {
+      opacity: 1;
+    }
+}
+
+
+

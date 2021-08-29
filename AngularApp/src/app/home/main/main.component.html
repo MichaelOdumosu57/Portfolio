@@ -1,0 +1,21 @@
+<app-navigation></app-navigation>
+<img
+class = "a_p_p_MainImage"
+[ngStyle]= "image.style"
+src="assets/media/main_1.png" alt="">
+<div
+class="a_p_p_MainTextPod">
+    <h1
+    [class]="name.class"
+    [ngStyle]="name.style"
+    >
+        {{name.text}}
+    </h1>
+    <p
+    [class]="description.class"
+    [ngStyle]="description.style">
+        {{description.text}}
+    </p>
+
+
+</div>

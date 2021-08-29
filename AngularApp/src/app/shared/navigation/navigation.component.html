@@ -1,0 +1,25 @@
+
+<div
+class="a_p_p_NavPod"
+>
+
+    <img
+    (click)=menu.icon.click($event)
+    class='a_p_p_NavIcon'
+    src="assets/media/nav_1.png" alt="" height=100>
+
+    <a
+    class = "a_p_p_NavItem"
+    *ngFor="let item of links"
+    [ngStyle]="item.style"
+    [routerLink]="'../'+item.path">
+        {{item.text}}
+    </a>
+    <div
+    [ngStyle]=menu.overlay.style
+    class=a_p_p_NavOverlay
+    >
+
+    </div>
+
+</div>

@@ -1,0 +1,57 @@
+<app-navigation></app-navigation>
+<img
+class = "a_p_p_MainImage"
+[ngStyle]= "image.style"
+src="assets/media/main_1.png" alt="">
+<div
+appColorfall [contact]="contact"
+class=a_p_p_ContactPod
+>
+    <div
+    [ngStyle]=contact.title.cover.style
+    class="a_p_p_ContactHeaderPod "
+    >
+
+        <h1
+        [ngStyle]=contact.title.name.style
+        class="a_p_p_ContactHeaderTitle a_p_p_SpecificCFT"
+        >Contact</h1>
+
+    </div>
+    <div
+    class=a_p_p_ContactBody0
+    >
+        <div
+        class="a_p_p_ContactBody0LogoPod"
+        >
+            <div
+            class="a_p_p_ContactBody0LogoLine"
+            *ngFor="let item of contact.logos.items"
+            >
+                <img
+                (click)=item.img.click($event)
+                class=a_p_p_ContactBody0LogoIcon
+                [src]="item.src" alt="">
+                <div
+                [ngStyle]=item.cover.style
+                class="a_p_p_ContactBody0LogoAnimateCover "
+                >
+                    <h2
+                    (click)="item.name.click($event)"
+                    [ngStyle]=item.name?.style
+                    class="a_p_p_ContactBody0LogoAnimateName a_p_p_SpecificWhite a_p_p_SpecificCFT"
+                    >{{item.name?.text}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+    class=a_p_p_ContactBody1
+    >
+        <h3
+        class="a_p_p_ContactBody1PreviewText a_p_p_SpecificTAC"
+        >
+            Click on the highlighted links to reach out
+        </h3>
+    </div>
+</div>

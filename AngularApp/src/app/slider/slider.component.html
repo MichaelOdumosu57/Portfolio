@@ -1,0 +1,19 @@
+<div
+class = "a_p_p_IntroPhraseCard"
+>
+    <h1
+    #myText
+    [class]="card.current.textClass"
+    [ngStyle]=card.current.textStyle
+    >
+        {{card.current.text}}
+    </h1>
+
+    <img
+    #myImg
+    [class]="card.current.picClass"
+    [src]="card.current.pic" alt=""
+    [ngStyle]=card.current.picStyle
+    (animationend)="image.animationend($event)"
+    >
+</div>

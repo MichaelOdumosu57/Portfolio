@@ -1,0 +1,42 @@
+<app-navigation></app-navigation>
+<img
+class = "a_p_p_MainImage"
+[ngStyle]= "image.style"
+src="assets/media/main_1.png" alt="">
+
+<div
+[ngStyle]="story.pod.style"
+class=" a_p_p_LibComponents"
+>
+    <p-carousel
+    appPaginate
+    [paginate]="paginate"
+    [value]="story.items"
+    [numVisible]="1"
+    [numScroll]="1"
+
+
+    styleClass="a_p_p_TestimonyPods"
+    contentClass="a_p_p_TestimonyItemPod">
+        <ng-template let-item pTemplate="item">
+
+                <h1
+                class=a_p_p_TestimonyItemName
+                >{{item.name}}</h1>
+                <img
+                class=a_p_p_TestimonyItemImg
+                [src]="item.image" alt="">
+                <p
+                class=a_p_p_TestimonyItemDesc
+                >{{item.desc}}</p>
+
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <button
+            class="a_p_p_TestimonyPause"
+            >Pause</button>
+        </ng-template>
+    </p-carousel>
+
+</div>
+
