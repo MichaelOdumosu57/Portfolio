@@ -101,7 +101,14 @@ forEach((x,i)=>{
         * ngx-translate
         * Spring Boot
         * log4j2
-        * DigitalOcean
+        * DigitalOcean  
+        * Google maps js sdk v3.0.0
+        * socket.io-client: 4.2.0
+        * flask 2.0.1
+        * Flask-SocketIO==5.1.1
+        * gunicorn==20.1.0
+        * pyngrok==5.1.0
+        * gevent 21.8.0        
 
 ### Backend
 
@@ -235,6 +242,22 @@ refer to README.md in ignore
     word-break: break-word;
 }
 ```
+
+## Terminal Workspace
+Session 1 (Frontend)
+    $(npx ng serve)
+    configure frontend 
+Session 2 (Backend)
+    $(python tornado_server.py)
+    configure backend (like heroku push)
+Session 3 (Testing)
+    configure testing env
+    ssh session to vm to instianiate docker vm
+Session 4 (Github)
+    git push 
+Session 5 (Logging)
+    ssh session to vm to instianiate docker vm
+
 
 # Resources
 [sucessful circle ci build](https://app.circleci.com/pipelines/github/MichaelOdumosu57/Portfolio/35/workflows/0acd7a54-1c59-4262-aad3-2664a22c0ac3/jobs/42)

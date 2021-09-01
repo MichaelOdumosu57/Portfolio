@@ -46,7 +46,7 @@ export class SkillsSunChartDirective {
                             .map((x, i) => "Ruby - " + x),
 
                         "Backend - Python",
-                        ...["lorem", "tornado", "watchdog", "dropbox", "boto3", "Nanonets ML","eventbrite"]
+                        ...["lorem", "tornado", "watchdog", "dropbox", "boto3", "Nanonets ML","eventbrite","Flask","Gunicorn"]
                             .map((x, i) => "Python - " + x),
                         "Backend - Heroku",
                         ...["buildpacks", "addons", "quotaGuard"]
@@ -67,18 +67,18 @@ export class SkillsSunChartDirective {
                             .map((x, i) => "Hosting - " + x),
 
                         ...["Azure-SQL", "MySQL", "Bigquery", "ODBC"]
-                            .map((x, i) => "SQL - " + x),
+                        .map((x, i) => "SQL - " + x),
 
                         "Logs - Java",
                         ...["SpringBoot", "log4j2","DigitalOcean"]
-                            .map((x, i) => "Java - " + x),
+                        .map((x, i) => "Java - " + x),
 
 
-                        ...["Github", "", "", ""]
-                            .map((x, i) => "Version - " + x),
+                        ...["Github", "Trello", "SocketIO", ""]
+                        .map((x, i) => "Version - " + x),
                     ],
                     labels: [
-                        "Frontend", "Testing", "Backend", "Cloud", "SQL","Logs", "Tools",
+                        "Frontend", "Testing", "Backend", "Cloud", "SQL","Logs", "Tools/Extras",
                         "Angular",
                         "primeNG", "agGrid", "ngModules", "sentry", "qrxcode", "Change<br>Detection","ngx-translate",
                         "Typescript",
@@ -92,7 +92,7 @@ export class SkillsSunChartDirective {
                         "CircleCI","Docker",
 
                         "Python",
-                        "lorem", "tornado", "watchdog", "dropbox", "boto3", "Nanonets<br>ML","Eventbrite",
+                        "lorem", "tornado", "watchdog", "dropbox", "boto3", "Nanonets<br>ML","Eventbrite","Flask","Gunicorn",
                         "Heroku",
                         "buildpacks", "addons", "quotaGuard",
 
@@ -111,7 +111,7 @@ export class SkillsSunChartDirective {
                         "Java",
                         "SpringBoot","log4j2","DigitalOcean",
 
-                        "Github", "Trello", "", ""
+                        "Github", "Trello", "SockerIO",""
                     ],
                     parents: [
                         "", "", "", "", "", "","",
@@ -130,7 +130,7 @@ export class SkillsSunChartDirective {
 
 
                         "Backend",
-                        ...Array(7).fill(null).map((_, i) => "Backend - Python"),
+                        ...Array(9).fill(null).map((_, i) => "Backend - Python"),
                         "Backend",
                         ...Array(3).fill(null).map((_, i) => "Backend - Heroku"),
 

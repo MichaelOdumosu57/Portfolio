@@ -104,7 +104,7 @@
 }
 
 @function my_prod($step){
-    $type: prod;
+    $type: dev;
     $prod: (0:50% ,1:slidein 2s,2:1s);
     $dev: (0:20px ,1:none,2:none);
     $answer: "";
