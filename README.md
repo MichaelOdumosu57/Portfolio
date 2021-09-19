@@ -108,7 +108,8 @@ forEach((x,i)=>{
         * Flask-SocketIO==5.1.1
         * gunicorn==20.1.0
         * pyngrok==5.1.0
-        * gevent 21.8.0        
+        * gevent 21.8.0 
+        * netlify       
 
 ### Backend
 
@@ -302,7 +303,18 @@ npx ng g component intro/main --change-detection=OnPush --export=true --module=i
 npx ng g directive contact/directive/links --module=contact
 ```
 
-## Media 
+## Media
+
+[testimony_5.jpg]
+* <a href='https://www.freepik.com/vectors/background'>Background vector created by starline - www.freepik.com</a>
+
+[testimony_4,jpg]
+* <a href='https://www.freepik.com/vectors/background'>Background vector created by Harryarts - www.freepik.com</a>
+
+[testimony_3.jpg]
+* <a href='https://www.freepik.com/vectors/background'>Background vector created by vvstudio - www.freepik.com</a>
+[testimony_1.jpg](https://www.freepik.com/free-vector/geometric-groovy-pattern_12406503.htm#&position=4)
+
 [spotlight.jpg](https://www.123rf.com/photo_144868909_vector-spotlight-on-scene-with-light-beams-and-particles-in-the-air-design-for-presentation-your-pro.html?vti=o0cr01nlfiawvvll1c-1-67)
 
 [intro_1.jpg]

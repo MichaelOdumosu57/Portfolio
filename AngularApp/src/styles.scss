@@ -104,7 +104,7 @@
 }
 
 @function my_prod($step){
-    $type: dev;
+    $type: prod;
     $prod: (0:50% ,1:slidein 2s,2:1s);
     $dev: (0:20px ,1:none,2:none);
     $answer: "";
@@ -121,6 +121,13 @@
 $intro_align : flex-end,flex-start;
 $intro_testimony_card_header: row,row-reverse;
 $media_breakpoint: (0:1075px,1:767px,resume_issue:1355px);
+$testimony_images: (
+    0:url(assets\media\testimony_1.jpg),
+    1:url(assets\media\testimony_2.jpg),
+    2:url(assets\media\testimony_3.png),
+    3:url(assets\media\testimony_4.jpg),
+    4:url(assets\media\testimony_5.jpg)
+);
 
 * {
     z-index:4;
@@ -859,6 +866,7 @@ $media_breakpoint: (0:1075px,1:767px,resume_issue:1355px);
 
             &Desc{
                 flex: 1 0 100%;
+                padding:0 20px;
                 font-size:24px;
                 font-family: var(--font-family0);
             }
@@ -1109,9 +1117,13 @@ $media_breakpoint: (0:1075px,1:767px,resume_issue:1355px);
     justify-content: space-around;
 
 
+
     @for $i from 1 through 5{
         &:nth-child(#{$i}){
-            flex-direction:nth($intro_testimony_card_header,random(2))
+            flex-direction:nth($intro_testimony_card_header,random(2));
+            background-image: map-get($map:$testimony_images , $key:$i - 1 );
+            background-size: cover;
+            // opacity:.5;
         }
     }
 

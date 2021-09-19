@@ -33,6 +33,28 @@ export class MainComponent implements OnInit {
         },
         items:Array(5).fill(null)
         .map((x:any,i)=>{
+
+            if(i=== 0){
+                return {
+                    name:"Dera Evah Alakwe",
+                    desc:`
+                    Hey Michael, I feel great writing here. Apart from the fathomless knowledge you have in your field, the amounts of enthusiasm you show in teaching coupled with innovative methods are wonderful, unbeatable and remarkable as well.
+
+                    Thank you for all the tireless efforts you make to make coding easy to understand.
+
+                     You've made studying Angular a fruitful, unforgettable and comprehensive experience.
+
+                    Amidst your busy schedule, you always find time to teach and motivate me.
+
+                    I must confess, you're the best teacher I have met in Tech Industry.
+
+                    Keep up the good work.
+
+                    From: Dera, your student🌹
+                    `,
+                    image:mediaPrefix({media:'testimony_0.jpg'})
+                }
+            }
             return {
                 name:"Story "+(i+1),
                 desc:`
