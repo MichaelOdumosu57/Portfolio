@@ -888,6 +888,7 @@ $testimony_images: (
             border: 5px solid black;
             border-radius:15px;
             background-color:var(--back);
+            margin:20px 0;
         }
 
         &Pods{
@@ -928,6 +929,12 @@ $testimony_images: (
                     width:100%;
                     margin:0 100px;
                 }
+
+                .p-carousel-footer{
+                    display: flex;
+                    justify-content: center;
+                }
+
 
             }
         }
@@ -1109,7 +1116,6 @@ $testimony_images: (
         z-index: 0;
     }
 }
-
 
 
 
