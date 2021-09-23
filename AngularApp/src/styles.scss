@@ -848,7 +848,8 @@ $testimony_images: (
                 display:flex;
                 align-items: center;
                 padding:20px;
-                height:inherit
+                height:inherit;
+                overflow: hidden auto !important;
                 // width:230px;
                 // @include outline;
             }
@@ -896,7 +897,8 @@ $testimony_images: (
             align-self: center;
             justify-self: center;
             border-radius: 10px;
-            background-color: var(--white);
+            background-color: rgba( 255, 255, 255, 0.68 );
+
             opacity: 0.93;
             filter:brightness(2);
             padding:10px;
