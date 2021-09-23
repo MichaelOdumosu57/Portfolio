@@ -34,26 +34,39 @@ export class MainComponent implements OnInit {
         items:Array(5).fill(null)
         .map((x:any,i)=>{
 
-            if(i=== 0){
-                return {
-                    name:"Dera Evah Alakwe",
-                    desc:`
-                    Hey Michael, I feel great writing here. Apart from the fathomless knowledge you have in your field, the amounts of enthusiasm you show in teaching coupled with innovative methods are wonderful, unbeatable and remarkable as well.
+            if([0,1].includes(i)){
+                return [
+                        {
+                            name:"Apryl Bell",
+                            desc:`
+                            I would like to thank Michael for helping me with google cloud platform issues
+                            regarding a Python Spark application transferred to a
+                            cloud storage bucket.
+                            He was very helpful in assisting me while also providing resources in IT.
+                            `,
+                            image:""
+                        },
+                        {
+                        name:"Dera Evah Alakwe",
+                        desc:`
+                        Hey Michael, I feel great writing here. Apart from the fathomless knowledge you have in your field, the amounts of enthusiasm you show in teaching coupled with innovative methods are wonderful, unbeatable and remarkable as well.
 
-                    Thank you for all the tireless efforts you make to make coding easy to understand.
+                        Thank you for all the tireless efforts you make to make coding easy to understand.
 
-                     You've made studying Angular a fruitful, unforgettable and comprehensive experience.
+                        You've made studying Angular a fruitful, unforgettable and comprehensive experience.
 
-                    Amidst your busy schedule, you always find time to teach and motivate me.
+                        Amidst your busy schedule, you always find time to teach and motivate me.
 
-                    I must confess, you're the best teacher I have met in Tech Industry.
+                        I must confess, you're the best teacher I have met in Tech Industry.
 
-                    Keep up the good work.
+                        Keep up the good work.
 
-                    From: Dera, your student🌹
-                    `,
-                    image:mediaPrefix({media:'testimony_0.jpg'})
-                }
+                        From: Dera, your student🌹
+                        `,
+                        image:mediaPrefix({media:'testimony_0.jpg'})
+                    },
+
+                ][i]
             }
             return {
                 name:"Story "+(i+1),
